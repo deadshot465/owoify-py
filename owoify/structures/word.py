@@ -1,4 +1,4 @@
-from typing import List, Set, Callable, Optional
+from typing import List, Set, Callable
 import re
 
 

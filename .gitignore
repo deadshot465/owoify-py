@@ -3,3 +3,5 @@ Scripts/
 pyvenv.cfg
 .idea/
 Include/__pycache__
+dist/
+owoify_py.egg-info/

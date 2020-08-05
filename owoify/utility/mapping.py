@@ -1,4 +1,4 @@
-from Include.word import Word
+from owoify.structures.word import Word
 import math
 import random
 import re

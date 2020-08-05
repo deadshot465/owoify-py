@@ -1,4 +1,4 @@
-from Include.mapping import *
+from owoify.utility.mapping import *
 
 
 SPECIFIC_WORD_MAPPING_LIST = [
