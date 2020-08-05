@@ -5,3 +5,4 @@ pyvenv.cfg
 Include/__pycache__
 dist/
 owoify_py.egg-info/
+owoify/__pycache__
