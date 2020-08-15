@@ -1,4 +1,4 @@
-# owoify.py
+# owoify-py
 Turning your worst nightmare into a Python package.
 
 - [Python package](https://pypi.org/project/owoify-py/)

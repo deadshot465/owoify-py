@@ -233,7 +233,7 @@ def map_ly_to_wy(input: Word) -> Word:
 
 
 def map_ple_to_pwe(input: Word) -> Word:
-    return input.replace(PLE_TO_PWE, '1we')
+    return input.replace(PLE_TO_PWE, '\\1we')
 
 
 def map_nr_to_nw(input: Word) -> Word:
