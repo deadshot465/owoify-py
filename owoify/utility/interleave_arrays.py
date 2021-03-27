@@ -5,8 +5,7 @@ def interleave_arrays(a: list, b: list) -> list:
     temp = []
 
     while len(observed) > 0:
-        arr.append(observed[0])
-        observed.pop(0)
+        arr.append(observed.pop(0))
         temp = observed
         observed = other
         other = temp

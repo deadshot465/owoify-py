@@ -6,3 +6,7 @@ Include/__pycache__
 dist/
 owoify_py.egg-info/
 owoify/__pycache__
+**/*/__pycache__
+**/*/.DS_Store
+venv
+.DS_Store
