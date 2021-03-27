@@ -1,3 +1,4 @@
+from owoify.utility.flatten import flatten
 from typing import List, Set, Callable
 import re
 
@@ -69,6 +70,7 @@ class Word:
             return self
         replacing_word = self.word.replace(captures.group(0), replace_value)
         collection = search_value.findall(self.word)
+        collection = list(flatten(collection))
         replaced_words: List[str]
         if len(collection) > 1:
             replaced_words = list(map(lambda s: s.replace(s, replace_value), collection))
