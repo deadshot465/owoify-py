@@ -40,6 +40,6 @@ As usual, I'm writing this package for both practicing and bots' needs. **Perfor
 ## See also
 - [owoify-js](https://github.com/mohan-cao/owoify-js) - The original owoify-js repository.
 - [owoify](https://pypi.org/project/owoify/) - The existing owoify package on PyPI.
-- [Owoify.Net](https://www.nuget.org/packages/Owoify.Net/1.0.1) - The C# port of Owoify written by me.
+- [Owoify.Net](https://www.nuget.org/packages/Owoify.Net/1.1.0) - The C# port of Owoify written by me.
 - [Owoify++](https://github.com/deadshot465/OwoifyCpp) - The C++ header-only port of Owoify written by me.
 - [owoify_rs](https://crates.io/crates/owoify_rs) - The Rust port of Owoify written by me.

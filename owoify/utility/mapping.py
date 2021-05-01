@@ -2,7 +2,6 @@ from owoify.structures.word import Word
 import random
 import re
 
-
 O_TO_OWO = re.compile(r'o')
 EW_TO_UWU = re.compile(r'ew')
 HEY_TO_HAY = re.compile(r'([Hh])ey')
@@ -70,7 +69,7 @@ FACES = [
     '(⌒ω⌒)', 'ヽ(*・ω・)ﾉ', '(o´∀`o)', '(o･ω･o)', '＼(＾▽＾)／',
     '(*^ω^)', '(◕‿◕✿)', '(◕ᴥ◕)', 'ʕ•ᴥ•ʔ', 'ʕ￫ᴥ￩ʔ', '(*^.^*)', '(｡♥‿♥｡)',
     'OwO', 'uwu', 'uvu', 'UvU', '(*￣з￣)', '(つ✧ω✧)つ', '(/ =ω=)/',
-    '(╯°□°）╯︵ ┻━┻', '┬─┬ ノ( ゜-゜ノ)', '¯\_(ツ)_/¯'
+    '(╯°□°）╯︵ ┻━┻', '┬─┬ ノ( ゜-゜ノ)', '¯\\_(ツ)_/¯'
 ]
 
 
@@ -92,7 +91,7 @@ def map_hey_to_hay(input: Word) -> Word:
 
 
 def map_dead_to_ded(input: Word) -> Word:
-    return input.replace(DEAD_TO_DED_UPPER, 'Ded')\
+    return input.replace(DEAD_TO_DED_UPPER, 'Ded') \
         .replace(DEAD_TO_DED_LOWER, 'ded')
 
 
@@ -101,27 +100,29 @@ def map_n_vowel_t_to_nd(input: Word) -> Word:
 
 
 def map_read_to_wead(input: Word) -> Word:
-    return input.replace(READ_TO_WEAD_UPPER, 'Wead')\
+    return input.replace(READ_TO_WEAD_UPPER, 'Wead') \
         .replace(READ_TO_WEAD_LOWER, 'wead')
 
 
 def map_brackets_to_star_trails(input: Word) -> Word:
-    return input.replace(BRACKETS_TO_STARTRAILS_FORE, '｡･:*:･ﾟ★,｡･:*:･ﾟ☆')\
+    return input.replace(BRACKETS_TO_STARTRAILS_FORE, '｡･:*:･ﾟ★,｡･:*:･ﾟ☆') \
         .replace(BRACKETS_TO_STARTRAILS_REAR, '☆ﾟ･:*:･｡,★ﾟ･:*:･｡')
 
 
 def map_period_comma_exclamation_semicolon_to_kaomojis(input: Word) -> Word:
-    return input.replace_with_func_single(PERIOD_COMMA_EXCLAMATION_SEMICOLON_TO_KAOMOJIS_FIRST, lambda: f' {FACES[random.randint(0, len(FACES) - 1)]}')\
-        .replace_with_func_single(PERIOD_COMMA_EXCLAMATION_SEMICOLON_TO_KAOMOJIS_SECOND, lambda: f' {FACES[random.randint(0, len(FACES) - 1)]}')
+    return input.replace_with_func_single(PERIOD_COMMA_EXCLAMATION_SEMICOLON_TO_KAOMOJIS_FIRST,
+                                          lambda: f' {FACES[random.randint(0, len(FACES) - 1)]}') \
+        .replace_with_func_single(PERIOD_COMMA_EXCLAMATION_SEMICOLON_TO_KAOMOJIS_SECOND,
+                                  lambda: f' {FACES[random.randint(0, len(FACES) - 1)]}')
 
 
 def map_that_to_dat(input: Word) -> Word:
-    return input.replace(THAT_TO_DAT_LOWER, 'dat')\
+    return input.replace(THAT_TO_DAT_LOWER, 'dat') \
         .replace(THAT_TO_DAT_UPPER, 'Dat')
 
 
 def map_th_to_f(input: Word) -> Word:
-    return input.replace(TH_TO_F_LOWER, 'f')\
+    return input.replace(TH_TO_F_LOWER, 'f') \
         .replace(TH_TO_F_UPPER, 'F')
 
 
@@ -130,7 +131,7 @@ def map_le_to_wal(input: Word) -> Word:
 
 
 def map_ve_to_we(input: Word) -> Word:
-    return input.replace(VE_TO_WE_LOWER, 'we')\
+    return input.replace(VE_TO_WE_LOWER, 'we') \
         .replace(VE_TO_WE_UPPER, 'We')
 
 
@@ -139,7 +140,7 @@ def map_ry_to_wwy(input: Word) -> Word:
 
 
 def map_r_or_l_to_w(input: Word) -> Word:
-    return input.replace(RORL_TO_W_LOWER, 'w')\
+    return input.replace(RORL_TO_W_LOWER, 'w') \
         .replace(RORL_TO_W_UPPER, 'W')
 
 
@@ -148,22 +149,22 @@ def map_ll_to_ww(input: Word) -> Word:
 
 
 def map_vowel_or_r_except_o_l_to_wl(input: Word) -> Word:
-    return input.replace(VOWEL_OR_R_EXCEPT_O_L_TO_WL_LOWER, 'wl')\
+    return input.replace(VOWEL_OR_R_EXCEPT_O_L_TO_WL_LOWER, 'wl') \
         .replace(VOWEL_OR_R_EXCEPT_O_L_TO_WL_UPPER, 'W\\1')
 
 
 def map_old_to_owld(input: Word) -> Word:
-    return input.replace(OLD_TO_OWLD_LOWER, '\\1wld')\
+    return input.replace(OLD_TO_OWLD_LOWER, '\\1wld') \
         .replace(OLD_TO_OWLD_UPPER, 'OWLD')
 
 
 def map_ol_to_owl(input: Word) -> Word:
-    return input.replace(OL_TO_OWL_LOWER, '\\1wl')\
+    return input.replace(OL_TO_OWL_LOWER, '\\1wl') \
         .replace(OL_TO_OWL_UPPER, 'OWL')
 
 
 def map_l_or_r_o_to_wo(input: Word) -> Word:
-    return input.replace(LORR_O_TO_WO_LOWER, 'wo')\
+    return input.replace(LORR_O_TO_WO_LOWER, 'wo') \
         .replace(LORR_O_TO_WO_UPPER, 'W\\1')
 
 
@@ -176,8 +177,9 @@ def mapping_function_1(s1: str, s2: str) -> str:
     msg += s2
     return msg
 
+
 def map_specific_consonants_o_to_letter_and_wo(input: Word) -> Word:
-    return input.replace(SPECIFIC_CONSONANTS_O_TO_LETTER_AND_WO_LOWER, '\\1wo')\
+    return input.replace(SPECIFIC_CONSONANTS_O_TO_LETTER_AND_WO_LOWER, '\\1wo') \
         .replace_with_func_multiple(SPECIFIC_CONSONANTS_O_TO_LETTER_AND_WO_UPPER, mapping_function_1)
 
 
@@ -186,7 +188,7 @@ def map_v_or_w_le_to_wal(input: Word) -> Word:
 
 
 def map_fi_to_fwi(input: Word) -> Word:
-    return input.replace(FI_TO_FWI_LOWER, '\\1wi')\
+    return input.replace(FI_TO_FWI_LOWER, '\\1wi') \
         .replace(FI_TO_FWI_UPPER, 'FWI')
 
 
@@ -207,7 +209,7 @@ def map_consonant_r_to_consonant_w(input: Word) -> Word:
 
 
 def map_ly_to_wy(input: Word) -> Word:
-    return input.replace(LY_TO_WY_LOWER, 'wy')\
+    return input.replace(LY_TO_WY_LOWER, 'wy') \
         .replace(LY_TO_WY_UPPER, 'Wy')
 
 
@@ -216,7 +218,7 @@ def map_ple_to_pwe(input: Word) -> Word:
 
 
 def map_nr_to_nw(input: Word) -> Word:
-    return input.replace(NR_TO_NW_LOWER, 'nw')\
+    return input.replace(NR_TO_NW_LOWER, 'nw') \
         .replace(NR_TO_NW_UPPER, 'NW')
 
 
@@ -233,13 +235,13 @@ def map_me_to_mwe(input: Word) -> Word:
 
 
 def map_n_vowel_to_ny(input: Word) -> Word:
-    return input.replace(N_VOWEL_TO_NY_FIRST, 'ny\\1')\
-        .replace(N_VOWEL_TO_NY_SECOND, 'Ny\\1')\
+    return input.replace(N_VOWEL_TO_NY_FIRST, 'ny\\1') \
+        .replace(N_VOWEL_TO_NY_SECOND, 'Ny\\1') \
         .replace(N_VOWEL_TO_NY_THIRD, 'NY\\1')
 
 
 def map_ove_to_uv(input: Word) -> Word:
-    return input.replace(OVE_TO_UV_LOWER, 'uv')\
+    return input.replace(OVE_TO_UV_LOWER, 'uv') \
         .replace(OVE_TO_UV_UPPER, 'UV')
 
 
@@ -252,7 +254,7 @@ def map_the_to_teh(input: Word) -> Word:
 
 
 def map_you_to_u(input: Word) -> Word:
-    return input.replace(YOU_TO_U_UPPER, 'U')\
+    return input.replace(YOU_TO_U_UPPER, 'U') \
         .replace(YOU_TO_U_LOWER, 'u')
 
 
