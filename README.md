@@ -1,6 +1,9 @@
 # owoify-py
 Turning your worst nightmare into a Python package.
 
+[![Python package](https://github.com/deadshot465/owoify-py/actions/workflows/python-package.yml/badge.svg)](https://github.com/deadshot465/owoify-py/actions/workflows/python-package.yml)
+[![Upload Python Package](https://github.com/deadshot465/owoify-py/actions/workflows/python-publish.yml/badge.svg)](https://github.com/deadshot465/owoify-py/actions/workflows/python-publish.yml)
+
 - [Python package](https://pypi.org/project/owoify-py/)
 
 This is a Python port of [mohan-cao's owoify-js](https://github.com/mohan-cao/owoify-js), which will help you turn any string into nonsensical babyspeak similar to LeafySweet's infamous Chrome extension.
