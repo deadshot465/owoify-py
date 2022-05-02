@@ -1,3 +1,8 @@
+## 2.0.0
+- **(Breaking change)** Update to Python 3.10.
+- **(Breaking change)** Make use of Python 3.10's pattern matching.
+- **(Breaking change)** Change owoness level from raw string to enum.
+
 ## 1.1.2
 - Add tests and fix a minor escaping bug in kaomojis.
 

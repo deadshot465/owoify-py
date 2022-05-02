@@ -10,3 +10,4 @@ owoify/__pycache__
 **/*/.DS_Store
 venv
 .DS_Store
+bin/

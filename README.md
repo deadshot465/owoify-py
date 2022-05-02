@@ -31,7 +31,7 @@ owoify.py is implemented as a simple function. That means you only need to impor
 ```python
 if __name__ == '__main__':
     print(owoify('This is the string to owo! Kinda cute isn\'t it?'))
-    print(owoify('This is the string to owo! Kinda cute isn\'t it?', 'uvu'))
+    print(owoify('This is the string to owo! Kinda cute isn\'t it?', Owoness.Uvu))
 
 # Output:
 # This is teh stwing two owo! Kinda cute isn't it?

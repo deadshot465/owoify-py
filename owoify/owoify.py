@@ -1,3 +1,5 @@
+import enum
+
 from owoify.utility.interleave_arrays import interleave_arrays
 from owoify.utility.presets import *
 from owoify.structures.word import Word
@@ -8,7 +10,13 @@ WORD_REGEX = re.compile(r'[^\s]+')
 SPACE_REGEX = re.compile(r'\s+')
 
 
-def map_owoify_levels(word: Word, level: str) -> Word:
+class Owoness(enum.Enum):
+    Owo = 0
+    Uwu = 1
+    Uvu = 2
+
+
+def map_owoify_levels(word: Word, level: Owoness) -> Word:
     """
     Utility function to map different level of owoness to the string.
     For internal use only.
@@ -17,35 +25,38 @@ def map_owoify_levels(word: Word, level: str) -> Word:
     :param level: The desired owoness level.
     :return: The owoified Word.
     """
-    level = level.lower()
+
     for func in SPECIFIC_WORD_MAPPING_LIST:
         word = func(word)
-    if level == 'owo':
-        for func in OWO_MAPPING_LIST:
-            word = func(word)
-    elif level == 'uwu':
-        for func in UWU_MAPPING_LIST:
-            word = func(word)
-        for func in OWO_MAPPING_LIST:
-            word = func(word)
-    elif level == 'uvu':
-        for func in UVU_MAPPING_LIST:
-            word = func(word)
-        for func in UWU_MAPPING_LIST:
-            word = func(word)
-        for func in OWO_MAPPING_LIST:
-            word = func(word)
-    else:
-        raise RuntimeError('The specified owoify level is not supported.')
+
+    match level:
+        case Owoness.Owo:
+            for func in OWO_MAPPING_LIST:
+                word = func(word)
+        case Owoness.Uwu:
+            for func in UWU_MAPPING_LIST:
+                word = func(word)
+            for func in OWO_MAPPING_LIST:
+                word = func(word)
+        case Owoness.Uvu:
+            for func in UVU_MAPPING_LIST:
+                word = func(word)
+            for func in UWU_MAPPING_LIST:
+                word = func(word)
+            for func in OWO_MAPPING_LIST:
+                word = func(word)
+        case _:
+            raise RuntimeError('The specified owoify level is not supported.')
+
     return word
 
 
-def owoify(source: str, level: str = 'owo') -> str:
+def owoify(source: str, level: Owoness = Owoness.Owo) -> str:
     """
     The main entry point of owoify. Pass the source string and the desired level of owoness to owoify it.
     :exception RuntimeError: When the inputted owoness level is incorrect.
     :param source: The source string to owoify.
-    :param level: The owoness to apply to the string. Available options are: `owo`, `uwu`, `uvu` (from low to high).
+    :param level: The owoness to apply to the string. Available options are: `Owo`, `Uwu`, `Uvu` (from low to high).
     :return: The owoified string.
     """
     word_matches = WORD_REGEX.findall(source)
