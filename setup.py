@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='owoify-py',
-    version='2.0.0',
+    version='2.0.1',
     author='Chehui Chou',
     author_email='tetsuki.syu1315@gmail.com',
     description='Turning your worst nightmare into a Python package.',
@@ -14,7 +14,7 @@ setuptools.setup(
     url='https://github.com/deadshot465/owoify-py',
     packages=setuptools.find_packages(),
     classfiers=[
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.10',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent'
     ],
