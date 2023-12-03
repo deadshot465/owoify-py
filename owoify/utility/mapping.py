@@ -46,10 +46,14 @@ LY_TO_WY_UPPER = re.compile(r'Ly')
 LY_TO_WY_LOWER = re.compile(r'ly')
 PLE_TO_PWE = re.compile(r'([Pp])le')
 NR_TO_NW_UPPER = re.compile(r'NR')
-NR_TO_NW_LOWER = re.compile(r'nr')
+NR_TO_NW_LOWER = re.compile(r'([Nn])r')
+MEM_TO_MWEM_UPPER = re.compile(r'Mem')
+MEM_TO_MWEM_LOWER = re.compile(r'mem')
+NYWO_TO_NYO = re.compile(r'([Nn])ywo')
 FUC_TO_FWUC = re.compile(r'([Ff])uc')
 MOM_TO_MWOM = re.compile(r'([Mm])om')
-ME_TO_MWE = re.compile(r'([Mm])e')
+ME_TO_MWE_UPPER = re.compile(r'^Me$')
+ME_TO_MWE_LOWER = re.compile(r'^me$')
 N_VOWEL_TO_NY_FIRST = re.compile(r'n([aeiou])')
 N_VOWEL_TO_NY_SECOND = re.compile(r'N([aeiou])')
 N_VOWEL_TO_NY_THIRD = re.compile(r'N([AEIOU])')
@@ -62,6 +66,15 @@ YOU_TO_U_LOWER = re.compile(r'\byou\b')
 TIME_TO_TIM = re.compile(r'\b([Tt])ime\b')
 OVER_TO_OWOR = re.compile(r'([Oo])ver')
 WORSE_TO_WOSE = re.compile(r'([Ww])orse')
+GREAT_TO_GWATE = re.compile(r'([Gg])reat')
+AVIAT_TO_AWIAT = re.compile(r'([Aa])viat')
+DEDICAT_TO_DEDITAT = re.compile(r'([Dd])edicat')
+REMEMBER_TO_REMBER = re.compile(r'([Rr])emember')
+WHEN_TO_WEN = re.compile(r'([Ww])hen')
+FRIGHTENED_TO_FRIGTEN = re.compile(r'([Ff])righten(ed)*')
+MEME_TO_MEM_FIRST = re.compile(r'Meme')
+MEME_TO_MEM_SECOND = re.compile(r'Mem')
+FEEL_TO_FELL = re.compile(r'^([Ff])eel$')
 
 # Additional kaomojis come from [owoify](https://pypi.org/project/owoify/) and Discord.
 FACES = [
@@ -218,8 +231,17 @@ def map_ple_to_pwe(input: Word) -> Word:
 
 
 def map_nr_to_nw(input: Word) -> Word:
-    return input.replace(NR_TO_NW_LOWER, 'nw') \
+    return input.replace(NR_TO_NW_LOWER, '\\1w') \
         .replace(NR_TO_NW_UPPER, 'NW')
+
+
+def map_mem_to_mwem(input: Word) -> Word:
+    return input.replace(MEM_TO_MWEM_UPPER, 'mwem') \
+        .replace(MEM_TO_MWEM_LOWER, 'Mwem')
+
+
+def unmap_nywo_to_nyo(input: Word) -> Word:
+    return input.replace(NYWO_TO_NYO, '\\1yo')
 
 
 def map_fuc_to_fwuc(input: Word) -> Word:
@@ -231,7 +253,8 @@ def map_mom_to_mwom(input: Word) -> Word:
 
 
 def map_me_to_mwe(input: Word) -> Word:
-    return input.replace(ME_TO_MWE, '\\1we')
+    return input.replace(ME_TO_MWE_UPPER, 'Mwe') \
+        .replace(ME_TO_MWE_LOWER, 'mwe')
 
 
 def map_n_vowel_to_ny(input: Word) -> Word:
@@ -268,3 +291,36 @@ def map_over_to_owor(input: Word) -> Word:
 
 def map_worse_to_wose(input: Word) -> Word:
     return input.replace(WORSE_TO_WOSE, '\\1ose')
+
+
+def map_great_to_gwate(input: Word) -> Word:
+    return input.replace(GREAT_TO_GWATE, '\\1wate')
+
+
+def map_aviat_to_awiat(input: Word) -> Word:
+    return input.replace(AVIAT_TO_AWIAT, '\\1wiat')
+
+
+def map_dedicat_to_deditat(input: Word) -> Word:
+    return input.replace(DEDICAT_TO_DEDITAT, '\\1editat')
+
+
+def map_remember_to_rember(input: Word) -> Word:
+    return input.replace(REMEMBER_TO_REMBER, '\\1ember')
+
+
+def map_when_to_wen(input: Word) -> Word:
+    return input.replace(WHEN_TO_WEN, '\\1en')
+
+
+def map_frightened_to_frigten(input: Word) -> Word:
+    return input.replace(FRIGHTENED_TO_FRIGTEN, '\\1rigten')
+
+
+def map_meme_to_mem(input: Word) -> Word:
+    return input.replace(MEME_TO_MEM_FIRST, 'mem') \
+        .replace(MEME_TO_MEM_SECOND, 'Mem')
+
+
+def map_feel_to_fell(input: Word) -> Word:
+    return input.replace(FEEL_TO_FELL, '\\1ell')

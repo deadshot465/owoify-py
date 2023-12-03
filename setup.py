@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='owoify-py',
-    version='2.0.1',
+    version='2.1.0',
     author='Chehui Chou',
     author_email='tetsuki.syu1315@gmail.com',
     description='Turning your worst nightmare into a Python package.',

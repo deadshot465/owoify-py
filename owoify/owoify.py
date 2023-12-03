@@ -5,7 +5,6 @@ from owoify.utility.presets import *
 from owoify.structures.word import Word
 import re
 
-
 WORD_REGEX = re.compile(r'[^\s]+')
 SPACE_REGEX = re.compile(r'\s+')
 
@@ -70,3 +69,21 @@ def owoify(source: str, level: Owoness = Owoness.Owo) -> str:
     result = interleave_arrays(words, spaces)
     result_strings = list(map(lambda w: str(w), result))
     return ''.join(result_strings)
+
+
+def uwuify(source: str) -> str:
+    """
+    Owoify the source string using Uwu owoness.
+    :param source: The source string to owoify.
+    :return: The owoified string.
+    """
+    return owoify(source, Owoness.Uwu)
+
+
+def uvuify(source: str) -> str:
+    """
+    Owoify the source string using Uvu owoness.
+    :param source: The source string to owoify.
+    :return: The owoified string.
+    """
+    return owoify(source, Owoness.Uvu)
